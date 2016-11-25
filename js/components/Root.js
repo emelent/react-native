@@ -1,14 +1,19 @@
 import React from 'react';
-import codePush from 'react-native-code-push'
-import Main from './Main';
+import codePush from 'react-native-code-push';
+import {Provider} from 'react-redux';
 
-@codePush
+import Main from './Main';
+import store from '../store';
+
 class Root extends React.Component{
   render(){
     return(
-      <Main />
+      <Provider store={store}>
+        <Main />
+      </Provider>
     );
   }
 };
 
+Root = codePush(Root);
 export default Root;
